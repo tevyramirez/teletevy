@@ -44,7 +44,7 @@ function ChannelPlayer() {
     />,
   ];
 
-  useEffect(() => {
+   useEffect(() => {
     const player = currentPlayerRef.current;
     if (player) {
       player.muted = true;
@@ -57,10 +57,10 @@ function ChannelPlayer() {
   }, [currentChannel]);
 
   useHotkeys('left', () => handlePrev(), { enableOnTags: ['INPUT'] });
-  useHotkeys('right', () => handleNext(), { enableOnTags: ['INPUT'] });
+  useHotkeys('right', () => handleNext(), { enableOnTags: ['INPUT'] }); 
 
   const handleNext = () => {
-    setCurrentChannel((currentChannel + 1) % channels.length);
+    setCurrentChannel((currentChannel + 1) % channels.length);     
   };
 
   const handlePrev = () => {
