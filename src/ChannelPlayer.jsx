@@ -22,7 +22,7 @@ function ChannelPlayer() {
       key="channel2"
       src="https://rudo.video/live/c13?c3=13CL&autostart=1&volume=0&tag=eyJwcmUiOiJodHRwczpcL1wvcHViYWRzLmcuZG91YmxlY2xpY2submV0XC9nYW1wYWRcL2Fkcz9pdT1cLzExMjM3MjIwN1wvZW52aXZvLmNsXC9lbnZpdm9cL3ByZXJvbGwmZGVzY3JpcHRpb25fdXJsPWh0dHAlM0ElMkYlMkZ3d3cuMTMuY2wlMkZlbi12aXZvJmVudj12cCZpbXBsPXMmY29ycmVsYXRvcj0mdGZjZD0wJm5wYT0wJmdkZnBfcmVxPTEmb3V0cHV0PXZhc3Qmc3o9NjU2eDM2OCZjaXVfc3pzPTcyOHg5MCw5NzB4OTAsOTcweDI1MCwxOTAweDgyNSwxOTIweDc2OCw0MDB4NjAmdW52aWV3ZWRfcG9zaXRpb25fc3RhcnQ9MSZwbW5kPTAmcG14ZD0xMjAwMDAmcG1hZD0yJnBvZD0xIiwicG9zdCI6IjAiLCJtaWQiOnsidGFnIjoiMCIsInRpbWUiOltdfSwib3ZlciI6eyJ0YWciOiJodHRwczpcL1wvcHViYWRzLmcuZG91YmxlY2xpY2submV0XC9nYW1wYWRcL2Fkcz9pdT1cLzExMjM3MjIwN1wvZW52aXZvLmNsXC9lbnZpdm9cL292ZXJsYXkmZGVzY3JpcHRpb25fdXJsPWh0dHAlM0ElMkYlMkZ3d3cuMTMuY2wlMkZlbi12aXZvJmVudj12cCZpbXBsPXMmY29ycmVsYXRvcj0mdGZjZD0wJm5wYT0wJmdkZnBfcmVxPTEmb3V0cHV0PXZhc3QmdmFkX3R5cGU9bm9ubGluZWFyJnN6PTQwMHg2MCZtaSIsInRpbWUiOls2MF19fQ=="
       width="1000"
-      height="562"
+    height="562"
       frameBorder="0"
       allow="autoplay; fullscreen; encrypted-media"
       allowFullScreen
@@ -75,11 +75,10 @@ function ChannelPlayer() {
       >
         {channels.map((channel, index) => (
           <div key={index}>
-            {index === currentChannel ? (
-              <iframe ref={currentPlayerRef} {...channel.props} />
-            ) : (
-              <iframe {...channel.props} />
-            )}
+            <iframe
+              ref={index === currentChannel ? currentPlayerRef : null}
+              {...channel.props}
+            />
           </div>
         ))}
       </SwipeableViews>
